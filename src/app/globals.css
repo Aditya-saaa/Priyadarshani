@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+/* Theme tokens are injected at runtime by ThemeStyle (see src/lib/theme-css.ts).
+   Fallbacks below match the Obsidian + Gold dark preset. */
+:root {
+  --bg: #0a0a0b;
+  --surface: #121214;
+  --surface-2: #1a1a1d;
+  --text: #f5f2ea;
+  --muted: #a39e92;
+  --accent: #c9a96a;
+  --accent-contrast: #0a0a0b;
+  --border: #26241f;
+  --radius: 4px;
+  --speed: 0.7s;
+  --section-gap: 7rem;
+  --font-display: var(--font-playfair);
+  --font-body: var(--font-inter);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-line: var(--border);
+  --radius-theme: var(--radius);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+/* Accessible focus states */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Thin elegant scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--muted) 35%, transparent);
+  border-radius: 5px;
+}
+
+/* Hairline divider with accent center */
+.hairline {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent), transparent);
+  opacity: 0.55;
+}
+
+/* Kicker / eyebrow label */
+.kicker {
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: var(--accent);
+  font-family: var(--font-body), sans-serif;
+}
+
+/* Premium card surface */
+.card {
+  background: color-mix(in srgb, var(--surface) 86%, transparent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  backdrop-filter: blur(12px);
+  transition: border-color var(--speed) ease, transform var(--speed) ease,
+    box-shadow var(--speed) ease;
+}
+.card:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  box-shadow: 0 24px 60px -32px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+/* Gallery layout — driven by admin-controlled CSS variables:
+   --gallery-cols (2 | 3 | 4) and --gallery-gap (rem). */
+
+/* Masonry via CSS columns (>= sm). On mobile the gallery falls back to a 2-col grid. */
+@media (min-width: 640px) {
+  .masonry {
+    display: block;
+    columns: 2;
+    column-gap: var(--gallery-gap, 1.25rem);
+  }
+  .masonry > * {
+    break-inside: avoid;
+    margin-bottom: var(--gallery-gap, 1.25rem);
+  }
+}
+@media (min-width: 1024px) {
+  .masonry { columns: var(--gallery-cols, 3); }
+}
+
+/* Uniform grid mode */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gallery-gap, 1.25rem);
+}
+@media (min-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(var(--gallery-cols, 3), minmax(0, 1fr));
+  }
+}
+
+/* Scroll indicator */
+@keyframes scroll-dot {
+  0% { transform: translateY(0); opacity: 1; }
+  70% { transform: translateY(14px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 0; }
+}
+.scroll-dot { animation: scroll-dot 2.2s ease-in-out infinite; }
+
+/* Image hover zoom + blur reveal */
+.img-zoom img {
+  transition: transform calc(var(--speed) * 1.6) cubic-bezier(0.22, 1, 0.36, 1),
+    filter calc(var(--speed) * 1.2) ease, opacity 0.6s ease;
+}
+.img-zoom:hover img { transform: scale(1.045); }

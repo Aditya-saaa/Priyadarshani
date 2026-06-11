@@ -1,0 +1,10 @@
+{
+  "preset": "obsidian-gold",
+  "mode": "dark",
+  "overrides": {},
+  "typography": "serif",
+  "radius": 4,
+  "buttonStyle": "outline",
+  "animationSpeed": "normal",
+  "sectionSpacing": "normal"
+}

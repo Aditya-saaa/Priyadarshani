@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "platform": "instagram",
+    "label": "Instagram",
+    "url": "https://instagram.com",
+    "visible": true,
+    "sortOrder": 0
+  },
+  {
+    "id": 2,
+    "platform": "facebook",
+    "label": "Facebook",
+    "url": "https://facebook.com",
+    "visible": true,
+    "sortOrder": 1
+  },
+  {
+    "id": 3,
+    "platform": "x",
+    "label": "X",
+    "url": "https://x.com",
+    "visible": true,
+    "sortOrder": 2
+  },
+  {
+    "id": 4,
+    "platform": "youtube",
+    "label": "YouTube",
+    "url": "https://youtube.com",
+    "visible": true,
+    "sortOrder": 3
+  },
+  {
+    "id": 5,
+    "platform": "linkedin",
+    "label": "LinkedIn",
+    "url": "https://linkedin.com",
+    "visible": true,
+    "sortOrder": 4
+  },
+  {
+    "id": 6,
+    "platform": "website",
+    "label": "Website",
+    "url": "https://example.com",
+    "visible": false,
+    "sortOrder": 5
+  },
+  {
+    "id": 7,
+    "platform": "tiktok",
+    "label": "TikTok",
+    "url": "https://tiktok.com/@test",
+    "visible": true,
+    "sortOrder": 6
+  }
+]
