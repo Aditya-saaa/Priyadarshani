@@ -13,9 +13,9 @@
       "visible": true
     }
   ],
-  "galleryLayout": "masonry",
+  "galleryLayout": "grid",
   "galleryColumns": 3,
-  "galleryGap": "normal",
-  "galleryAspect": "square",
+  "galleryGap": "tight",
+  "galleryAspect": "portrait",
   "heroAlignment": "center"
 }
