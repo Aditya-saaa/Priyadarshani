@@ -6,5 +6,5 @@
   "radius": 4,
   "buttonStyle": "outline",
   "animationSpeed": "normal",
-  "sectionSpacing": "compact"
+  "sectionSpacing": "normal"
 }
