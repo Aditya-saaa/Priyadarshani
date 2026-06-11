@@ -14,7 +14,7 @@
     }
   ],
   "galleryLayout": "masonry",
-  "galleryColumns": 3,
+  "galleryColumns": 4,
   "galleryGap": "tight",
   "galleryAspect": "portrait",
   "heroAlignment": "center"
