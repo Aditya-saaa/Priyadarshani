@@ -13,7 +13,7 @@
       "visible": true
     }
   ],
-  "galleryLayout": "grid",
+  "galleryLayout": "masonry",
   "galleryColumns": 3,
   "galleryGap": "tight",
   "galleryAspect": "portrait",
